@@ -1902,9 +1902,9 @@ objectclass ( sstObjectClass:57
 objectclass ( sstObjectClass:58
     NAME 'sstVirtualizationBackupObjectClass'
     SUP top AUXILIARY
-    MUST ( sstBackupNumberOfIterations $ sstBackupRootDirectory $ sstBackupRetainDirectory $
-           sstVirtualizationVirtualMachineForceStart $ sstVirtualizationBandwidthMerge )
-    MAY ( sstRestoreVMWithoutState $ sstBackupExcludeFromBackup $ sstBackupRamDiskLocation $
+    MAY ( sstBackupNumberOfIterations $ sstBackupRootDirectory $ sstBackupRetainDirectory $
+          sstVirtualizationVirtualMachineForceStart $ sstVirtualizationBandwidthMerge $
+          sstRestoreVMWithoutState $ sstBackupExcludeFromBackup $ sstBackupRamDiskLocation $
           sstVirtualizationVirtualMachineSequenceStop $ sstVirtualizationVirtualMachineSequenceStart ) )
 
 objectclass ( sstObjectClass:59
