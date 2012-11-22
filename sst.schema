@@ -1526,6 +1526,34 @@ attributetype ( sstAttributeType:209
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
     SINGLE-VALUE )
 
+attributetype ( sstAttributeType:210
+    NAME 'sstVirtualizationDiskImagePermission'
+    DESC 'The permission (in octal representation) for the new disk image that is created during the backup process. Default is 660 (equivalent to 0660)'
+    EQUALITY integerMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.27{4}
+    SINGLE-VALUE )
+
+attributetype ( sstAttributeType:211
+    NAME 'sstVirtualizationDiskImageFormat'
+    DESC 'The format for the new disk image that is created during the backup process. Default is qcow2.'
+    EQUALITY caseIgnoreMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{8}
+    SINGLE-VALUE )
+
+attributetype ( sstAttributeType:212
+    NAME 'sstVirtualizationDiskImageOwner'
+    DESC 'The owner for the new disk image that is created during the backup process. Default is root.'
+    EQUALITY caseIgnoreMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{16}
+    SINGLE-VALUE )
+
+attributetype ( sstAttributeType:213
+    NAME 'sstVirtualizationDiskImageGroup'
+    DESC 'The group for the new disk image that is created during the backup process. Default is vm-storage.'
+    EQUALITY caseIgnoreMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{16}
+    SINGLE-VALUE )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -1905,7 +1933,9 @@ objectclass ( sstObjectClass:58
     MAY ( sstBackupNumberOfIterations $ sstBackupRootDirectory $ sstBackupRetainDirectory $
           sstVirtualizationVirtualMachineForceStart $ sstVirtualizationBandwidthMerge $
           sstRestoreVMWithoutState $ sstBackupExcludeFromBackup $ sstBackupRamDiskLocation $
-          sstVirtualizationVirtualMachineSequenceStop $ sstVirtualizationVirtualMachineSequenceStart ) )
+          sstVirtualizationVirtualMachineSequenceStop $ sstVirtualizationVirtualMachineSequenceStart $
+	  sstVirtualizationDiskImageFormat $ sstVirtualizationDiskImageOwner $
+	  sstVirtualizationDiskImageGroup $ sstVirtualizationDiskImagePermission ) )
 
 objectclass ( sstObjectClass:59
     NAME 'sstVirtualizationSettingsObjectClass'
