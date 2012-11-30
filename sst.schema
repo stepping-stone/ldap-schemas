@@ -1554,6 +1554,27 @@ attributetype ( sstAttributeType:213
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{16}
     SINGLE-VALUE )
 
+attributetype ( sstAttributeType:214
+    NAME 'sstVirtualizationDiskImageDirectoryOwner'
+    DESC 'The owner for the new directory where the disk image is located. Default is root.'
+    EQUALITY caseIgnoreMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{16}
+    SINGLE-VALUE )
+
+attributetype ( sstAttributeType:215
+    NAME 'sstVirtualizationDiskImageDirectoryGroup'
+    DESC 'The group for the new directory where the disk image is located. Default is vm-storage.'
+    EQUALITY caseIgnoreMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{16}
+    SINGLE-VALUE )
+
+attributetype ( sstAttributeType:216
+    NAME 'sstVirtualizationDiskImageDirectoryPermission'
+    DESC 'The permission (in octal representation) for the new directory where the disk image is located. Default is 770 (equivalent to 0770)'
+    EQUALITY integerMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.27{4}
+    SINGLE-VALUE )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -1935,7 +1956,9 @@ objectclass ( sstObjectClass:58
           sstRestoreVMWithoutState $ sstBackupExcludeFromBackup $ sstBackupRamDiskLocation $
           sstVirtualizationVirtualMachineSequenceStop $ sstVirtualizationVirtualMachineSequenceStart $
 	  sstVirtualizationDiskImageFormat $ sstVirtualizationDiskImageOwner $
-	  sstVirtualizationDiskImageGroup $ sstVirtualizationDiskImagePermission ) )
+	  sstVirtualizationDiskImageGroup $ sstVirtualizationDiskImagePermission $
+          sstVirtualizationDiskImageDirectoryOwner $ sstVirtualizationDiskImageDirectoryGroup $
+          sstVirtualizationDiskImageDirectoryPermission ) )
 
 objectclass ( sstObjectClass:59
     NAME 'sstVirtualizationSettingsObjectClass'
