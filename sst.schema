@@ -1578,7 +1578,8 @@ attributetype ( sstAttributeType:216
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
-    MUST ( uid $ organizationName ) )
+    MUST ( uid $ organizationName ) 
+    MAY ( sstIsActive ) )
 
 objectclass ( sstObjectClass:2
     NAME 'sstAddressCompany'
@@ -1586,7 +1587,7 @@ objectclass ( sstObjectClass:2
     MUST ( countryName $ givenName $ localityName $ mail $ organizationName $ 
            postalCode $ preferredLanguage $ sstGender $ surname )
     MAY ( mobileTelephoneNumber $ postalAddress $ postOfficeBox $
-          sstWebsiteURL $ stateOrProvinceName $ telephoneNumber) )
+          sstWebsiteURL $ stateOrProvinceName $ telephoneNumber ) )
 
 objectclass ( sstObjectClass:3
     NAME 'sstAddressPerson'
@@ -1594,7 +1595,7 @@ objectclass ( sstObjectClass:3
     MUST ( countryName $ givenName $ localityName $ mail $ postalCode $
            preferredLanguage $ sstGender $ surname )
     MAY ( mobileTelephoneNumber $ postalAddress $ postOfficeBox $
-          sstWebsiteURL $ stateOrProvinceName $ telephoneNumber) )
+          sstWebsiteURL $ stateOrProvinceName $ telephoneNumber ) )
 
 objectclass ( sstObjectClass:4
     NAME 'sstBillingReseller'
@@ -1607,25 +1608,27 @@ objectclass ( sstObjectClass:5
     NAME 'sstBillingCustomer'
     SUP top AUXILIARY
     MUST ( sstBillingCycle $ sstBillingCycleFix $ sstCurrency $ 
-           sstPaymentMethod) )
+           sstPaymentMethod ) )
 
 objectclass ( sstObjectClass:6
     NAME 'sstPerson'
     SUP top STRUCTURAL
     MUST ( givenName $ mail $ preferredLanguage $ sstGender $ sstBelongsToCustomerUID $
-           sstTimeZoneOffset $ surname $ uid $ userPassword)
+           sstTimeZoneOffset $ surname $ uid $ userPassword )
     MAY ( cn $ description $ mobileTelephoneNumber $ sstBelongsToResellerUID $ sstBelongsToUID $ 
-          telephoneNumber $ sstGroupUID $ sstLDAPForeignStaticAttribute $ sstGroupName ) )
+          telephoneNumber $ sstGroupUID $ sstLDAPForeignStaticAttribute $ sstGroupName $ sstIsActive ) )
 
 objectclass ( sstObjectClass:7
     NAME 'sstCustomerCompany'
     SUP top STRUCTURAL
-    MUST ( organizationName $ sstBelongsToResellerUID $ uid ) )
+    MUST ( organizationName $ sstBelongsToResellerUID $ uid )
+    MAY ( sstIsActive ) )
 
 objectclass ( sstObjectClass:8
     NAME 'sstCustomerPerson'
     SUP top STRUCTURAL
-    MUST ( givenName $ surname $ sstBelongsToResellerUID $ uid ) )
+    MUST ( givenName $ surname $ sstBelongsToResellerUID $ uid )
+    MAY ( sstIsActive ) )
 
 objectclass ( sstObjectClass:9
     NAME 'sstBillingProduct'
@@ -1739,7 +1742,7 @@ objectclass ( sstObjectClass:24
     NAME 'sstRelationship'
     SUP top AUXILIARY
     MUST ( sstBelongsToCustomerUID $ sstBelongsToResellerUID )
-    MAY ( sstBelongsToBillingUID $ sstBelongsToPersonUID ) )
+    MAY ( sstBelongsToBillingUID $ sstBelongsToPersonUID $ sstIsActive ) )
 
 objectclass ( sstObjectClass:25
     NAME 'sstSpice'
