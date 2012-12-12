@@ -924,9 +924,9 @@ attributetype ( sstAttributeType:123
 
 attributetype ( sstAttributeType:124
     NAME 'sstLDAPAuthUserBindDn'
-    DESC 'The dn of the user to bind with.'
-    EQUALITY distinguishedNameMatch
-    SYNTAX 1.3.6.1.4.1.1466.115.121.1.12
+    DESC 'The dn of the user or the user to bind with.'
+    EQUALITY caseIgnoreMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
     SINGLE-VALUE )
 
 attributetype ( sstAttributeType:125
