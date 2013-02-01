@@ -1589,6 +1589,13 @@ attributetype ( sstAttributeType:218
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
     SINGLE-VALUE )
 
+attributetype ( sstAttributeType:219
+    NAME 'sstThinProvisioningVirtualMachine'
+    DESC 'The name of a virtual machine in the form of a UUID (Universally Unique Identifier) that is beeing thin provisioned from this virtual machine (see virDomainBlockCommit and virDomainGetBlockJobInfo for more information).'
+    EQUALITY caseIgnoreIA5Match
+    SUBSTR caseIgnoreIA5SubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{64} )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -1772,7 +1779,7 @@ objectclass ( sstObjectClass:26
            sstOSMachine $ sstOSType $ sstStatus $ sstType $ sstVCPU $ 
 	   sstVirtualMachine $ sstVirtualMachinePool )
     MAY ( description $ sstFeature $ sstMigrationNode $ sstSourceFile $
-          sstVirtualMachineType $ sstVirtualMachineSubType) )
+          sstVirtualMachineType $ sstVirtualMachineSubType $ sstThinProvisioningVirtualMachine ) )
 
 objectclass ( sstObjectClass:27
     NAME 'sstVirtualizationVirtualMachineDevices'
@@ -1784,7 +1791,7 @@ objectclass ( sstObjectClass:28
     SUP top STRUCTURAL
     MUST ( sstDevice $ sstDisk $ sstSourceFile $ sstTargetBus $ sstType )
     MAY ( sstDriverCache $ sstDriverName $ sstDriverType $ sstReadonly $ sstVolumeAllocation $
-          sstVolumeCapacity $ sstVolumeName) )
+          sstVolumeCapacity $ sstVolumeName ) )
 
 objectclass ( sstObjectClass:29
     NAME 'sstVirtualizationVirtualMachineInterface'
