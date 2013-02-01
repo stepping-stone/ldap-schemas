@@ -1575,6 +1575,20 @@ attributetype ( sstAttributeType:216
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.27{4}
     SINGLE-VALUE )
 
+attributetype ( sstAttributeType:217
+    NAME 'sstNetworkHostnameFormat'
+    DESC 'The format of the hostname in the printf format (for example kvm-%04d gives you kvm-0000 up to kvm-9999).'
+    EQUALITY caseIgnoreMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{32}
+    SINGLE-VALUE )
+
+attributetype ( sstAttributeType:218
+    NAME 'sstNetworkHostnameNextFreeNumber'
+    DESC 'The next free number, which is used by sstNetworkHostnameFormat (for example kvm-%04d) to give us unique hostnames (default is 1).'
+    EQUALITY integerMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -1968,3 +1982,13 @@ objectclass ( sstObjectClass:59
     SUP top AUXILIARY
     MAY ( sstAllowRDP $ sstAllowSound $ sstAllowSpice $ sstAllowUSB $ sstAllowVNC $ 
           sstSpicePortMin $ sstSpicePortMax ) )
+
+objectclass ( sstObjectClass:60
+    NAME 'sstHostnameDefinitionObjectClass'
+    SUP top AUXILIARY
+    MUST ( sstNetworkDomainName $ sstNetworkHostnameFormat $ sstNetworkHostnameNextFreeNumber ) )
+
+objectclass ( sstObjectClass:61
+    NAME 'sstHostnameObjectClass'
+    SUP top AUXILIARY
+    MUST ( sstNetworkDomainName $ sstNetworkHostname $ sstDisplayName ) )
