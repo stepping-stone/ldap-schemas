@@ -1986,9 +1986,11 @@ objectclass ( sstObjectClass:59
 objectclass ( sstObjectClass:60
     NAME 'sstHostnameDefinitionObjectClass'
     SUP top AUXILIARY
-    MUST ( sstNetworkDomainName $ sstNetworkHostnameFormat $ sstNetworkHostnameNextFreeNumber ) )
+    MUST ( sstNetworkDomainName $ sstNetworkHostnameFormat $ sstNetworkHostnameNextFreeNumber )
+    MAY ( description ) )
 
 objectclass ( sstObjectClass:61
     NAME 'sstHostnameObjectClass'
     SUP top AUXILIARY
-    MUST ( sstNetworkDomainName $ sstNetworkHostname $ sstDisplayName ) )
+    MUST ( sstNetworkDomainName $ sstNetworkHostname $ sstDisplayName )
+    MAY ( description ) )
