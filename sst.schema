@@ -1779,7 +1779,8 @@ objectclass ( sstObjectClass:26
            sstOSMachine $ sstOSType $ sstStatus $ sstType $ sstVCPU $ 
 	   sstVirtualMachine $ sstVirtualMachinePool )
     MAY ( description $ sstFeature $ sstMigrationNode $ sstSourceFile $
-          sstVirtualMachineType $ sstVirtualMachineSubType $ sstThinProvisioningVirtualMachine ) )
+          sstVirtualMachineType $ sstVirtualMachineSubType $ sstThinProvisioningVirtualMachine $
+          sstNetworkDomainName $ sstNetworkHostname ) )
 
 objectclass ( sstObjectClass:27
     NAME 'sstVirtualizationVirtualMachineDevices'
@@ -1994,10 +1995,4 @@ objectclass ( sstObjectClass:60
     NAME 'sstHostnameDefinitionObjectClass'
     SUP top AUXILIARY
     MUST ( sstNetworkDomainName $ sstNetworkHostnameFormat $ sstNetworkHostnameNextFreeNumber )
-    MAY ( description ) )
-
-objectclass ( sstObjectClass:61
-    NAME 'sstHostnameObjectClass'
-    SUP top AUXILIARY
-    MUST ( sstNetworkDomainName $ sstNetworkHostname $ sstDisplayName )
     MAY ( description ) )
