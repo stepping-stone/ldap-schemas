@@ -1596,6 +1596,34 @@ attributetype ( sstAttributeType:219
     SUBSTR caseIgnoreIA5SubstringsMatch
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{64} )
 
+attributetype ( sstAttributeType:220
+    NAME 'sstServiceName'
+    DESC 'The name of the service.'
+    EQUALITY caseIgnoreMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256}
+    SINGLE-VALUE )
+
+attributetype ( sstAttributeType:221
+    NAME 'sstServiceDescription'
+    DESC 'A short description of the service.'
+    EQUALITY caseIgnoreMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256}
+    SINGLE-VALUE )
+
+attributetype ( sstAttributeType:222
+    NAME 'sstServiceProvisioningDaemon'
+    DESC 'The name of the service provisioning daemon in the form of prov-<SERVICE>-<TYPE> (for example: prov-monitoring-zabbix).'
+    EQUALITY caseIgnoreMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256}
+    SINGLE-VALUE )
+
+attributetype ( sstAttributeType:223
+    NAME 'sstServicePriority'
+    DESC 'The priority of a service. Possible values are 1, 2, 3 or 4.'
+    EQUALITY integerMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.27{2}
+    SINGLE-VALUE )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -1996,3 +2024,9 @@ objectclass ( sstObjectClass:60
     SUP top AUXILIARY
     MUST ( sstNetworkDomainName $ sstNetworkHostnameFormat $ sstNetworkHostnameNextFreeNumber )
     MAY ( description ) )
+
+objectclass ( sstObjectClass:61
+    NAME 'sstServiceObjectClass'
+    SUP top AUXILIARY
+    MUST ( sstServiceName )
+    MAY ( sstServiceDescription $ sstServiceProvisioningDaemon $ sstServicePriority ) )
