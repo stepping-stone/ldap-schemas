@@ -2027,6 +2027,6 @@ objectclass ( sstObjectClass:60
 
 objectclass ( sstObjectClass:61
     NAME 'sstServiceObjectClass'
-    SUP top AUXILIARY
+    SUP top STRUCTURAL
     MUST ( sstServiceName )
     MAY ( sstServiceDescription $ sstServiceProvisioningDaemon $ sstServicePriority ) )
