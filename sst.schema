@@ -2029,4 +2029,4 @@ objectclass ( sstObjectClass:61
     NAME 'sstServiceObjectClass'
     SUP top STRUCTURAL
     MUST ( sstServiceName )
-    MAY ( sstServiceDescription $ sstServiceProvisioningDaemon $ sstServicePriority ) )
+    MAY ( sstServiceDescription $ sstServiceProvisioningDaemon $ sstServicePriority $ uid ) )
