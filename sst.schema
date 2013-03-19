@@ -1645,6 +1645,12 @@ attributetype ( sstAttributeType:226
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256}
     SINGLE-VALUE )
 
+attributetype ( sstAttributeType:227
+    NAME 'sstServiceSubscription'
+    DESC 'Tell the system, if the information is to be used by which service. For example: monitoring or configuration management (the corresponding service needs to subscribed to, otherwise this information will be ignored).'
+    EQUALITY caseIgnoreMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256} )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -2057,3 +2063,8 @@ objectclass ( sstObjectClass:62
     SUP top AUXILIARY
     MUST ( sstOperatingSystem $ sstOperatingSystemVersion )
     MAY ( sstOperatingSystemType ) )
+
+objectclass ( sstObjectClass:63
+    NAME 'sstServiceSubscriptionObjectClass'
+    SUP top AUXILIARY
+    MAY ( sstServiceSubscription ) )
