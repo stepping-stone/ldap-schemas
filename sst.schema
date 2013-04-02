@@ -1689,10 +1689,11 @@ objectclass ( sstObjectClass:5
 objectclass ( sstObjectClass:6
     NAME 'sstPerson'
     SUP top STRUCTURAL
-    MUST ( givenName $ mail $ preferredLanguage $ sstGender $ sstBelongsToCustomerUID $
+    MUST ( givenName $ mail $ preferredLanguage $ sstBelongsToCustomerUID $
            sstTimeZoneOffset $ surname $ uid $ userPassword )
     MAY ( cn $ description $ mobileTelephoneNumber $ sstBelongsToResellerUID $ sstBelongsToUID $ 
-          telephoneNumber $ sstGroupUID $ sstLDAPForeignStaticAttribute $ sstGroupName $ sstIsActive ) )
+          telephoneNumber $ sstGroupUID $ sstLDAPForeignStaticAttribute $ sstGroupName $ 
+	  sstIsActive $ sstGender ) )
 
 objectclass ( sstObjectClass:7
     NAME 'sstCustomerCompany'
