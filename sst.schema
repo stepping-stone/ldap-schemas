@@ -2069,3 +2069,8 @@ objectclass ( sstObjectClass:63
     NAME 'sstServiceSubscriptionObjectClass'
     SUP top AUXILIARY
     MAY ( sstServiceSubscription ) )
+
+objectclass ( sstObjectClass:64
+    NAME 'sstServiceConfigurionMonitoringObjectClass'
+    SUP top AUXILIARY
+    MUST ( sstWebsiteURL $ uid ) )
