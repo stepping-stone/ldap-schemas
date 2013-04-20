@@ -2073,4 +2073,4 @@ objectclass ( sstObjectClass:63
 objectclass ( sstObjectClass:64
     NAME 'sstServiceConfigurionMonitoringObjectClass'
     SUP top AUXILIARY
-    MUST ( sstWebsiteURL $ uid ) )
+    MUST ( sstWebsiteURL $ uid $ sstIsActive ) )
