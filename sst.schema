@@ -1633,17 +1633,16 @@ attributetype ( sstAttributeType:224
 
 attributetype ( sstAttributeType:225
     NAME 'sstOperatingSystemType'
-    DESC 'The operating system type (only used for Linux). For example Fedora/Debian/Gentoo/... .'
+    DESC 'The operating system type. For example Fedora / Debian / Gentoo / ... or Server 2008 R2 / Server 2012 / ....'
     EQUALITY caseIgnoreMatch
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256}
     SINGLE-VALUE )
 
 attributetype ( sstAttributeType:226
     NAME 'sstOperatingSystemVersion'
-    DESC 'The operating system version. For example 18 (for Linux Fedora 18) or 2008 R2 (for Windows 2008 R2).'
+    DESC 'The operating system version. For example 18 (for Linux Fedora 18) or Standard (for Windows 2008 R2 Standard).'
     EQUALITY caseIgnoreMatch
-    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256}
-    SINGLE-VALUE )
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256} )
 
 attributetype ( sstAttributeType:227
     NAME 'sstServiceSubscription'
@@ -2062,8 +2061,7 @@ objectclass ( sstObjectClass:61
 objectclass ( sstObjectClass:62
     NAME 'sstOperatingSystemObjectClass'
     SUP top AUXILIARY
-    MUST ( sstOperatingSystem $ sstOperatingSystemVersion )
-    MAY ( sstOperatingSystemType ) )
+    MUST ( sstOperatingSystem $ sstOperatingSystemType $ sstOperatingSystemVersion ) )
 
 objectclass ( sstObjectClass:63
     NAME 'sstServiceSubscriptionObjectClass'
@@ -2074,3 +2072,8 @@ objectclass ( sstObjectClass:64
     NAME 'sstServiceConfigurionMonitoringObjectClass'
     SUP top AUXILIARY
     MUST ( sstWebsiteURL $ uid $ sstIsActive ) )
+
+objectclass ( sstObjectClass:65
+    NAME 'sstOperatingSystemVersionObjectClass'
+    SUP top AUXILIARY
+    MUST ( sstOperatingSystemVersion ) )
