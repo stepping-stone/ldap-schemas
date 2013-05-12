@@ -2069,7 +2069,7 @@ objectclass ( sstObjectClass:63
     MAY ( sstServiceSubscription ) )
 
 objectclass ( sstObjectClass:64
-    NAME 'sstServiceConfigurionMonitoringObjectClass'
+    NAME 'sstServiceConfigurationMonitoringObjectClass'
     SUP top AUXILIARY
     MUST ( sstWebsiteURL $ uid $ sstIsActive ) )
 
@@ -2077,3 +2077,8 @@ objectclass ( sstObjectClass:65
     NAME 'sstOperatingSystemVersionObjectClass'
     SUP top AUXILIARY
     MUST ( sstOperatingSystemVersion ) )
+
+objectclass ( sstObjectClass:66
+    NAME 'sstServiceConfigurationConfigurationManagementObjectClass'
+    SUP top AUXILIARY
+    MUST ( sstIsActive ) )
