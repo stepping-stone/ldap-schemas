@@ -2024,8 +2024,8 @@ objectclass ( sstObjectClass:52
 objectclass ( sstObjectClass:53
     NAME 'sstGroupObjectClass'
     SUP top STRUCTURAL
-    MUST ( uid $ sstDisplayName )
-    MAY ( description $ sstGroupName $ sstLDAPForeignStaticAttribute ) )
+    MUST ( sstDisplayName )
+    MAY ( description $ sstGroupName $ sstLDAPForeignStaticAttribute $ uid ) )
 
 objectclass ( sstObjectClass:54
     NAME 'sstLDAPMappingObjectClass'
