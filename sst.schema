@@ -1650,6 +1650,27 @@ attributetype ( sstAttributeType:227
     EQUALITY caseIgnoreMatch
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256} )
 
+attributetype ( sstAttributeType:228
+    NAME 'sstAllowResellerUID'
+    DESC 'Stores the reseller UID(s) that are allowed access to this leaf. If set to 0 (zero), all resellers have access.'
+    EQUALITY caseIgnoreMatch
+    SUBSTR caseIgnoreSubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256} )
+
+attributetype ( sstAttributeType:229
+    NAME 'sstAllowCustomerUID'
+    DESC 'Stores the customer UID(s) that are allowed access to this leaf. If set to 0 (zero), all customers belonging to the allowed resellers have access.'
+    EQUALITY caseIgnoreMatch
+    SUBSTR caseIgnoreSubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256} )
+
+attributetype ( sstAttributeType:230
+    NAME 'sstAllowPersonUID'
+    DESC 'Stores the person UID(s) that are allowed access to this leaf. If set to 0 (zero), all people belonging to the allowed resellers and the allowed customers have access.'
+    EQUALITY caseIgnoreMatch
+    SUBSTR caseIgnoreSubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256} )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -1818,7 +1839,8 @@ objectclass ( sstObjectClass:24
     NAME 'sstRelationship'
     SUP top AUXILIARY
     MUST ( sstBelongsToCustomerUID $ sstBelongsToResellerUID )
-    MAY ( sstBelongsToBillingUID $ sstBelongsToPersonUID $ sstIsActive ) )
+    MAY ( sstBelongsToBillingUID $ sstBelongsToPersonUID $ sstIsActive $ sstAllowResellerUID $
+          sstAllowCustomerUID $ sstAllowPersonUID ) )
 
 objectclass ( sstObjectClass:25
     NAME 'sstSpice'
@@ -2079,6 +2101,6 @@ objectclass ( sstObjectClass:65
     MUST ( sstOperatingSystemVersion ) )
 
 objectclass ( sstObjectClass:66
-    NAME 'sstServiceConfigurationConfigurationManagementObjectClass'
+    NAME 'sstServiceConfigurationMaintenanceObjectClass'
     SUP top AUXILIARY
     MUST ( sstIsActive ) )
