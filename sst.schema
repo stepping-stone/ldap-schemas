@@ -2025,7 +2025,7 @@ objectclass ( sstObjectClass:53
     NAME 'sstGroupObjectClass'
     SUP top STRUCTURAL
     MUST ( sstDisplayName )
-    MAY ( description $ sstGroupName $ sstLDAPForeignStaticAttribute $ uid ) )
+    MAY ( description $ ou $ sstGroupName $ sstLDAPForeignStaticAttribute $ uid ) )
 
 objectclass ( sstObjectClass:54
     NAME 'sstLDAPMappingObjectClass'
