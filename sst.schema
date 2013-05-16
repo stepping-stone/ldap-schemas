@@ -1677,6 +1677,14 @@ attributetype ( sstAttributeType:231
     EQUALITY caseIgnoreMatch
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{64} )
 
+attributetype ( sstAttributeType:232
+    NAME 'sstVirtualMachineMode'
+    DESC 'The current mode of a virtual machine or virtual machine template (do not use, maintenance mode, first installation, ready for use).'
+    EQUALITY caseIgnoreIA5Match
+    SUBSTR caseIgnoreIA5SubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{16}
+    SINGLE-VALUE )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -1861,7 +1869,7 @@ objectclass ( sstObjectClass:26
            sstOnPowerOff $ sstOnReboot $ sstOSArchitecture $ sstOSBootDevice $ 
            sstOSMachine $ sstOSType $ sstStatus $ sstType $ sstVCPU $ 
 	   sstVirtualMachine $ sstVirtualMachinePool )
-    MAY ( description $ sstFeature $ sstMigrationNode $ sstSourceFile $
+    MAY ( description $ sstFeature $ sstMigrationNode $ sstSourceFile $ sstVirtualMachineMode $
           sstVirtualMachineType $ sstVirtualMachineSubType $ sstThinProvisioningVirtualMachine $
           sstNetworkDomainName $ sstNetworkHostname ) )
 
