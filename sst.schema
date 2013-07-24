@@ -1685,6 +1685,13 @@ attributetype ( sstAttributeType:232
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{16}
     SINGLE-VALUE )
 
+attributetype ( sstAttributeType:233
+    NAME 'sstEmployeeOfUID'
+    DESC 'Stores the UID(s) of the customer and/or reseller the person is a employee of.'
+    EQUALITY caseIgnoreMatch
+    SUBSTR caseIgnoreSubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256} )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -1727,7 +1734,7 @@ objectclass ( sstObjectClass:6
            sstTimeZoneOffset $ surname $ uid $ userPassword )
     MAY ( cn $ description $ mobileTelephoneNumber $ sstBelongsToResellerUID $ sstBelongsToUID $ 
           telephoneNumber $ sstGroupUID $ sstLDAPForeignStaticAttribute $ sstGroupName $ 
-	  sstIsActive $ sstGender ) )
+	      sstIsActive $ sstGender $ sstEmployeeOfUID ) )
 
 objectclass ( sstObjectClass:7
     NAME 'sstCustomerCompany'
