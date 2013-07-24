@@ -1746,7 +1746,7 @@ objectclass ( sstObjectClass:8
     NAME 'sstCustomerPerson'
     SUP top STRUCTURAL
     MUST ( givenName $ surname $ sstBelongsToResellerUID $ uid )
-    MAY ( sstIsActive ) )
+    MAY ( sstBelongsToCustomerUID $ sstIsActive ) )
 
 objectclass ( sstObjectClass:9
     NAME 'sstBillingProduct'
