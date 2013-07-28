@@ -2126,3 +2126,8 @@ objectclass ( sstObjectClass:66
     NAME 'sstServiceConfigurationMaintenanceObjectClass'
     SUP top AUXILIARY
     MUST ( sstIsActive ) )
+
+objectclass ( sstObjectClass:67
+    NAME 'sstServiceConfigurationBackupObjectClass'
+    SUP top AUXILIARY
+    MUST ( sstIsActive ) )
