@@ -1692,6 +1692,14 @@ attributetype ( sstAttributeType:233
     SUBSTR caseIgnoreSubstringsMatch
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256} )
 
+attributetype ( sstAttributeType:234
+    NAME 'sstTitle'
+    DESC 'The title of a person in the form of CEO or Technician.'
+    EQUALITY caseIgnoreMatch
+    SUBSTR caseIgnoreSubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{128}
+    SINGLE-VALUE )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -1734,7 +1742,7 @@ objectclass ( sstObjectClass:6
            sstTimeZoneOffset $ surname $ uid $ userPassword )
     MAY ( cn $ description $ mobileTelephoneNumber $ sstBelongsToResellerUID $ sstBelongsToUID $ 
           telephoneNumber $ sstGroupUID $ sstLDAPForeignStaticAttribute $ sstGroupName $ 
-	      sstIsActive $ sstGender $ sstEmployeeOfUID ) )
+	      sstIsActive $ sstGender $ sstEmployeeOfUID $ sstTitle ) )
 
 objectclass ( sstObjectClass:7
     NAME 'sstCustomerCompany'
