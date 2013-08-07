@@ -1711,7 +1711,7 @@ objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
     MUST ( uid $ organizationName ) 
-    MAY ( sstBelongsToResellerUID $ sstIsActive ) )
+    MAY ( description $ sstBelongsToResellerUID $ sstIsActive ) )
 
 objectclass ( sstObjectClass:2
     NAME 'sstAddressCompany'
