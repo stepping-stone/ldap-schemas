@@ -1721,6 +1721,20 @@ attributetype ( sstAttributeType:237
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
     SINGLE-VALUE )
 
+attributetype ( sstAttributeType:238
+    NAME 'sstBackupSize'
+    DESC 'The size of the actual backup in bytes.'
+    EQUALITY integerMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE )
+
+attributetype ( sstAttributeType:239
+    NAME 'sstIncrementSize'
+    DESC 'The size of all the incremental backups combined in bytes.'
+    EQUALITY integerMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -1929,7 +1943,8 @@ objectclass ( sstObjectClass:29
 objectclass ( sstObjectClass:30
     NAME 'sstTemplateSetup'
     SUP top AUXILIARY
-    MUST ( sstMailFrom $ sstMailTemplate $ sstMailTo ) )
+    MUST ( sstMailFrom $ sstMailTo )
+    MAY ( sstMailTemplate ) )
 
 objectclass ( sstObjectClass:31
     NAME 'sstVirtualizationProfileArchitectureDefaults'
@@ -1956,7 +1971,7 @@ objectclass ( sstObjectClass:34
 objectclass ( sstObjectClass:35
     NAME 'sstTemplateLanguage'
     SUP top AUXILIARY
-    MUST ( sstmailtemplate ) )
+    MUST ( sstMailTemplate ) )
 
 objectclass ( sstObjectClass:36
     NAME 'sstLDAPAuthenticationProvider'
@@ -1987,7 +2002,7 @@ objectclass ( sstObjectClass:39
            sstNotificationWarningMedium $ sstUseSelfcare $ sstUseSSH $ sstIsActive )
     MAY ( sstVolumeCapacityDefault $ sstVolumeCapacityMin $ sstVolumeCapacityMax $ sstVolumeCapacityStep $
           mail $ mobileTelephoneNumber $ sstBackupLastSuccessfulBackup $ sstQuota $
-          preferredLanguage ) )
+          preferredLanguage $ sstBackupSize $ sstIncrementSize ) )
 
 objectclass ( sstObjectClass:40
     NAME 'sstRoles'
