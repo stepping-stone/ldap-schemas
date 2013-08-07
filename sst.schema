@@ -1986,7 +1986,8 @@ objectclass ( sstObjectClass:39
            sstBackupWarningMissedNumbers $ sstBackupWarningOn $ sstNotificationWarningLevel $
            sstNotificationWarningMedium $ sstUseSelfcare $ sstUseSSH $ sstIsActive )
     MAY ( sstVolumeCapacityDefault $ sstVolumeCapacityMin $ sstVolumeCapacityMax $ sstVolumeCapacityStep $
-          mail $ mobileTelephoneNumber $ sstBackupLastSuccessfulBackup $ sstQuota ) )
+          mail $ mobileTelephoneNumber $ sstBackupLastSuccessfulBackup $ sstQuota $
+          sstBackupWarningLanguage ) )
 
 objectclass ( sstObjectClass:40
     NAME 'sstRoles'
