@@ -1707,6 +1707,20 @@ attributetype ( sstAttributeType:235
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
     SINGLE-VALUE )
 
+attributetype ( sstAttributeType:236
+    NAME 'sstUseSelfcare'
+    DESC 'Can a user use the web based selfcare interface? Either yes (TRUE) or no (FALSE).'
+    EQUALITY booleanMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+    SINGLE-VALUE )
+
+attributetype ( sstAttributeType:237
+    NAME 'sstUseSSH'
+    DESC 'Can a user access a service via SSH? Either yes (TRUE) or no (FALSE).'
+    EQUALITY booleanMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+    SINGLE-VALUE )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -1970,7 +1984,7 @@ objectclass ( sstObjectClass:39
     MUST ( sstBackupIntervalHourly $ sstBackupIntervalDaily $ sstBackupIntervalWeekly $
            sstBackupIntervalMonthly $ sstBackupIntervalYearly $ sstBackupWarningMissedDays $ 
            sstBackupWarningMissedNumbers $ sstBackupWarningOn $ sstNotificationWarningLevel $
-           sstNotificationWarningMedium )
+           sstNotificationWarningMedium $ sstUseSelfcare $ sstUseSSH $ sstIsActive )
     MAY ( sstVolumeCapacityDefault $ sstVolumeCapacityMin $ sstVolumeCapacityMax $ sstVolumeCapacityStep $
           mail $ mobileTelephoneNumber $ sstBackupLastSuccessfulBackup $ sstQuota ) )
 
