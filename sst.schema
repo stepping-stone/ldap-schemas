@@ -1735,6 +1735,13 @@ attributetype ( sstAttributeType:239
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
     SINGLE-VALUE )
 
+attributetype ( sstAttributeType:240
+    NAME 'sstQuotaChange'
+    DESC 'Can a user change the quota? Either yes (TRUE) or no (FALSE).'
+    EQUALITY booleanMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+    SINGLE-VALUE )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -2003,7 +2010,7 @@ objectclass ( sstObjectClass:39
            sstNotificationWarningMedium $ sstUseSelfcare $ sstUseSSH $ sstIsActive )
     MAY ( sstVolumeCapacityDefault $ sstVolumeCapacityMin $ sstVolumeCapacityMax $ sstVolumeCapacityStep $
           mail $ mobileTelephoneNumber $ sstBackupLastSuccessfulBackup $ sstQuota $
-          preferredLanguage $ sstBackupSize $ sstIncrementSize ) )
+          preferredLanguage $ sstBackupSize $ sstIncrementSize $ sstQuotaChange ) )
 
 objectclass ( sstObjectClass:40
     NAME 'sstRoles'
