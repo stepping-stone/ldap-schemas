@@ -1755,6 +1755,13 @@ attributetype ( sstAttributeType:242
     EQUALITY caseIgnoreMatch
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{32} )
 
+attributetype ( sstAttributeType:243
+    NAME 'sstNotificationWarningMediumAdd'
+    DESC 'Can a user add new notification warning mediums? Either yes (TRUE) or no (FALSE).'
+    EQUALITY booleanMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+    SINGLE-VALUE )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -2025,7 +2032,7 @@ objectclass ( sstObjectClass:39
           mail $ mobileTelephoneNumber $ sstBackupLastSuccessfulBackup $ sstQuota $
           preferredLanguage $ sstBackupSize $ sstIncrementSize $ sstQuotaChange $
           sstNotificationWarningMediumChange $ sstNotificationWarning $ loginShell $
-          shadowMax $ shadowWarning $ shadowFlag ) )
+          shadowMax $ shadowWarning $ shadowFlag $ sstNotificationWarningMediumChange ) )
 
 objectclass ( sstObjectClass:40
     NAME 'sstRoles'
