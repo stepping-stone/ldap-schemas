@@ -2032,7 +2032,8 @@ objectclass ( sstObjectClass:39
           mail $ mobileTelephoneNumber $ sstBackupLastSuccessfulBackup $ sstQuota $
           preferredLanguage $ sstBackupSize $ sstIncrementSize $ sstQuotaChange $
           sstNotificationWarningMediumChange $ sstNotificationWarning $ loginShell $
-          shadowMax $ shadowWarning $ shadowFlag $ sstNotificationWarningMediumChange ) )
+          shadowMax $ shadowWarning $ shadowFlag $ sstNotificationWarningMediumChange $
+          sstNotificationWarningMediumAdd ) )
 
 objectclass ( sstObjectClass:40
     NAME 'sstRoles'
