@@ -976,14 +976,14 @@ attributetype ( sstAttributeType:130
     SINGLE-VALUE )
 
 attributetype ( sstAttributeType:131
-    NAME 'sstBackupWarningMissedNumbers'
+    NAME 'sstBackupWarningNumbers'
     DESC 'After how many missed backups should the user be warned. Possible values are between 0 and 99.'
     EQUALITY integerMatch
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.27{2}
     SINGLE-VALUE )
 
 attributetype ( sstAttributeType:132
-    NAME 'sstBackupWarningMissedDays'
+    NAME 'sstBackupWarningDays'
     DESC 'After how many missed backup days should the user be warned. Possible values are between 0 and 99.'
     EQUALITY integerMatch
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.27{2}
@@ -1998,8 +1998,8 @@ objectclass ( sstObjectClass:39
     NAME 'sstBackup'
     SUP top AUXILIARY
     MUST ( sstBackupIntervalHourly $ sstBackupIntervalDaily $ sstBackupIntervalWeekly $
-           sstBackupIntervalMonthly $ sstBackupIntervalYearly $ sstBackupWarningMissedDays $ 
-           sstBackupWarningMissedNumbers $ sstBackupWarningOn $ sstNotificationWarningLevel $
+           sstBackupIntervalMonthly $ sstBackupIntervalYearly $ sstBackupWarningDays $ 
+           sstBackupWarningNumbers $ sstBackupWarningOn $ sstNotificationWarningLevel $
            sstNotificationWarningMedium $ sstUseSelfcare $ sstUseSSH $ sstIsActive )
     MAY ( sstVolumeCapacityDefault $ sstVolumeCapacityMin $ sstVolumeCapacityMax $ sstVolumeCapacityStep $
           mail $ mobileTelephoneNumber $ sstBackupLastSuccessfulBackup $ sstQuota $
