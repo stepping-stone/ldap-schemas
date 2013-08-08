@@ -1963,8 +1963,8 @@ objectclass ( sstObjectClass:29
 objectclass ( sstObjectClass:30
     NAME 'sstTemplateSetup'
     SUP top AUXILIARY
-    MUST ( sstMailFrom $ sstMailTo )
-    MAY ( sstMailTemplate ) )
+    MUST ( sstMailFrom )
+    MAY ( sstMailTemplate $ sstMailTo ) )
 
 objectclass ( sstObjectClass:31
     NAME 'sstVirtualizationProfileArchitectureDefaults'
