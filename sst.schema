@@ -1742,6 +1742,13 @@ attributetype ( sstAttributeType:240
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
     SINGLE-VALUE )
 
+attributetype ( sstAttributeType:241
+    NAME 'sstNotificationWarningMediumChange'
+    DESC 'Can a user change the notification warning medium? Either yes (TRUE) or no (FALSE).'
+    EQUALITY booleanMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+    SINGLE-VALUE )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -2010,7 +2017,8 @@ objectclass ( sstObjectClass:39
            sstNotificationWarningMedium $ sstUseSelfcare $ sstUseSSH $ sstIsActive )
     MAY ( sstVolumeCapacityDefault $ sstVolumeCapacityMin $ sstVolumeCapacityMax $ sstVolumeCapacityStep $
           mail $ mobileTelephoneNumber $ sstBackupLastSuccessfulBackup $ sstQuota $
-          preferredLanguage $ sstBackupSize $ sstIncrementSize $ sstQuotaChange ) )
+          preferredLanguage $ sstBackupSize $ sstIncrementSize $ sstQuotaChange $
+          sstNotificationWarningMediumChange ) )
 
 objectclass ( sstObjectClass:40
     NAME 'sstRoles'
