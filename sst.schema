@@ -1749,6 +1749,12 @@ attributetype ( sstAttributeType:241
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
     SINGLE-VALUE )
 
+attributetype ( sstAttributeType:242
+    NAME 'sstNotificationWarning'
+    DESC 'The notification warning(s), that are to be sent (for example: quota and schedule).'
+    EQUALITY caseIgnoreMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{32} )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -2018,7 +2024,7 @@ objectclass ( sstObjectClass:39
     MAY ( sstVolumeCapacityDefault $ sstVolumeCapacityMin $ sstVolumeCapacityMax $ sstVolumeCapacityStep $
           mail $ mobileTelephoneNumber $ sstBackupLastSuccessfulBackup $ sstQuota $
           preferredLanguage $ sstBackupSize $ sstIncrementSize $ sstQuotaChange $
-          sstNotificationWarningMediumChange ) )
+          sstNotificationWarningMediumChange $ sstNotificationWarning ) )
 
 objectclass ( sstObjectClass:40
     NAME 'sstRoles'
