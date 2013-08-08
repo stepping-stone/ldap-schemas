@@ -1971,7 +1971,8 @@ objectclass ( sstObjectClass:34
 objectclass ( sstObjectClass:35
     NAME 'sstTemplateLanguage'
     SUP top AUXILIARY
-    MUST ( sstMailTemplate ) )
+    MUST ( sstMailTemplate )
+    MAY ( sstIsDefault ) )
 
 objectclass ( sstObjectClass:36
     NAME 'sstLDAPAuthenticationProvider'
