@@ -2030,10 +2030,8 @@ objectclass ( sstObjectClass:39
            sstNotificationWarningMedium $ sstUseSelfcare $ sstUseSSH $ sstIsActive )
     MAY ( sstVolumeCapacityDefault $ sstVolumeCapacityMin $ sstVolumeCapacityMax $ sstVolumeCapacityStep $
           mail $ mobileTelephoneNumber $ sstBackupLastSuccessfulBackup $ sstQuota $
-          preferredLanguage $ sstBackupSize $ sstIncrementSize $ sstQuotaChange $
-          sstNotificationWarningMediumChange $ sstNotificationWarning $ loginShell $
-          shadowMax $ shadowWarning $ shadowFlag $ sstNotificationWarningMediumChange $
-          sstNotificationWarningMediumAdd ) )
+          preferredLanguage $ sstBackupSize $ sstIncrementSize $ sstNotificationWarning $ loginShell $
+          shadowMax $ shadowWarning $ shadowFlag ) )
 
 objectclass ( sstObjectClass:40
     NAME 'sstRoles'
@@ -2156,8 +2154,8 @@ objectclass ( sstObjectClass:58
           sstVirtualizationVirtualMachineForceStart $ sstVirtualizationBandwidthMerge $
           sstRestoreVMWithoutState $ sstBackupExcludeFromBackup $ sstBackupRamDiskLocation $
           sstVirtualizationVirtualMachineSequenceStop $ sstVirtualizationVirtualMachineSequenceStart $
-	  sstVirtualizationDiskImageFormat $ sstVirtualizationDiskImageOwner $
-	  sstVirtualizationDiskImageGroup $ sstVirtualizationDiskImagePermission $
+	      sstVirtualizationDiskImageFormat $ sstVirtualizationDiskImageOwner $
+	      sstVirtualizationDiskImageGroup $ sstVirtualizationDiskImagePermission $
           sstVirtualizationDiskImageDirectoryOwner $ sstVirtualizationDiskImageDirectoryGroup $
           sstVirtualizationDiskImageDirectoryPermission ) )
 
@@ -2204,7 +2202,7 @@ objectclass ( sstObjectClass:66
     NAME 'sstServiceSettingsObjectClass'
     SUP top AUXILIARY
     MAY ( sstVolumeCapacityDefault $ sstVolumeCapacityMin $ sstVolumeCapacityMax $
-          sstVolumeCapacityStep ) )
+          sstVolumeCapacityStep $ sstNotificationWarningMediumChange $ sstNotificationWarningMediumAdd $ sstQuotaChange ) )
 
 objectclass ( sstObjectClass:67
     NAME 'sstNotificationObjectClass'
