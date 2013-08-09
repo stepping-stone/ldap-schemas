@@ -2205,3 +2205,9 @@ objectclass ( sstObjectClass:66
     SUP top AUXILIARY
     MAY ( sstVolumeCapacityDefault $ sstVolumeCapacityMin $ sstVolumeCapacityMax $
           sstVolumeCapacityStep ) )
+
+objectclass ( sstObjectClass:67
+    NAME 'sstNotificationObjectClass'
+    SUP top AUXILIARY
+    MUST ( sstNotificationWarning ) )
+
