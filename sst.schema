@@ -2199,3 +2199,9 @@ objectclass ( sstObjectClass:65
     NAME 'sstOperatingSystemVersionObjectClass'
     SUP top AUXILIARY
     MUST ( sstOperatingSystemVersion ) )
+
+objectclass ( sstObjectClass:66
+    NAME 'sstServiceSettingsObjectClass'
+    SUP top AUXILIARY
+    MAY ( sstVolumeCapacityDefault $ sstVolumeCapacityMin $ sstVolumeCapacityMax $
+          sstVolumeCapacityStep ) )
