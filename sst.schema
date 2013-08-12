@@ -1762,11 +1762,19 @@ attributetype ( sstAttributeType:243
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
     SINGLE-VALUE )
 
+attributetype ( sstAttributeType:244
+    NAME 'sstExternalID'
+    DESC 'The ID (or number) of a customer, person or product in an external database (for example: 234567).'
+    EQUALITY caseIgnoreMatch
+    SUBSTR caseIgnoreSubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256}
+    SINGLE-VALUE )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
     MUST ( uid $ organizationName ) 
-    MAY ( description $ sstBelongsToResellerUID $ sstIsActive ) )
+    MAY ( description $ sstBelongsToResellerUID $ sstIsActive $ sstExternalID ) )
 
 objectclass ( sstObjectClass:2
     NAME 'sstAddressCompany'
@@ -1810,13 +1818,13 @@ objectclass ( sstObjectClass:7
     NAME 'sstCustomerCompany'
     SUP top STRUCTURAL
     MUST ( organizationName $ sstBelongsToResellerUID $ uid )
-    MAY ( sstBelongsToCustomerUID $ sstIsActive ) )
+    MAY ( sstBelongsToCustomerUID $ sstIsActive $ sstExternalID ) )
 
 objectclass ( sstObjectClass:8
     NAME 'sstCustomerPerson'
     SUP top STRUCTURAL
     MUST ( givenName $ surname $ sstBelongsToResellerUID $ uid )
-    MAY ( sstBelongsToCustomerUID $ sstIsActive ) )
+    MAY ( sstBelongsToCustomerUID $ sstIsActive $ sstExternalID) )
 
 objectclass ( sstObjectClass:9
     NAME 'sstBillingProduct'
@@ -1931,7 +1939,7 @@ objectclass ( sstObjectClass:24
     SUP top AUXILIARY
     MUST ( sstBelongsToCustomerUID $ sstBelongsToResellerUID )
     MAY ( sstBelongsToBillingUID $ sstBelongsToPersonUID $ sstIsActive $ sstAllowResellerUID $
-          sstAllowCustomerUID $ sstAllowPersonUID ) )
+          sstAllowCustomerUID $ sstAllowPersonUID $ sstExternalID ) )
 
 objectclass ( sstObjectClass:25
     NAME 'sstSpice'
