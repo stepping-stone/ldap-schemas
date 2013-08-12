@@ -1812,7 +1812,7 @@ objectclass ( sstObjectClass:6
            sstTimeZoneOffset $ surname $ uid $ userPassword )
     MAY ( cn $ description $ mobileTelephoneNumber $ sstBelongsToResellerUID $ sstBelongsToUID $ 
           telephoneNumber $ sstGroupUID $ sstLDAPForeignStaticAttribute $ sstGroupName $ 
-	      sstIsActive $ sstGender $ sstEmployeeOfUID $ sstTitle $ sstUseSelfcare ) )
+	      sstIsActive $ sstGender $ sstEmployeeOfUID $ sstTitle $ sstUseSelfcare $ sstExternalID ) )
 
 objectclass ( sstObjectClass:7
     NAME 'sstCustomerCompany'
