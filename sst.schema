@@ -1770,6 +1770,12 @@ attributetype ( sstAttributeType:244
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256}
     SINGLE-VALUE )
 
+attributetype ( sstAttributeType:245
+    NAME 'sstSendCredentialsTo'
+    DESC 'Tells the selfcare interface, to whom the credentials are to be sent (for example: login or owner).'
+    EQUALITY caseIgnoreMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{32} )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -2211,7 +2217,8 @@ objectclass ( sstObjectClass:66
     NAME 'sstServiceSettingsObjectClass'
     SUP top AUXILIARY
     MAY ( sstVolumeCapacityDefault $ sstVolumeCapacityMin $ sstVolumeCapacityMax $
-          sstVolumeCapacityStep $ sstNotificationWarningMediumChange $ sstNotificationWarningMediumAdd $ sstQuotaChange ) )
+          sstVolumeCapacityStep $ sstNotificationWarningMediumChange $ sstNotificationWarningMediumAdd $
+          sstQuotaChange $ sstSendCredentialsTo $ sstMailFrom ) )
 
 objectclass ( sstObjectClass:67
     NAME 'sstNotificationObjectClass'
