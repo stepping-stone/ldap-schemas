@@ -2250,7 +2250,7 @@ objectclass ( sstObjectClass:66
     SUP top AUXILIARY
     MAY ( sstVolumeCapacityDefault $ sstVolumeCapacityMin $ sstVolumeCapacityMax $
           sstVolumeCapacityStep $ sstNotificationWarningMediumChange $ sstNotificationWarningMediumAdd $
-          sstQuotaChange $ sstSendCredentialsTo $ sstMailFrom ) )
+          sstQuotaChange $ sstSendCredentialsTo $ sstMailFrom $ preferredLanguage ) )
 
 objectclass ( sstObjectClass:67
     NAME 'sstNotificationObjectClass'
