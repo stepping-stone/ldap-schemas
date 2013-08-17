@@ -1785,7 +1785,7 @@ attributetype ( sstAttributeType:246
     SINGLE-VALUE )
 
 attributetype ( sstAttributeType:247
-    NAME 'sstTemplateReseller'
+    NAME 'sstMailTemplateReseller'
     DESC 'The path and name to and of a template file, which is used to inform a reseller (for example: file:///var/www/selfcare/htdocs/themes/selfcare.stepping-stone.ch/templates/services/backup/schedule/reseller).'
     EQUALITY caseIgnoreMatch
     SUBSTR caseIgnoreSubstringsMatch
@@ -1802,6 +1802,38 @@ attributetype ( sstAttributeType:248
 
 attributetype ( sstAttributeType:249
     NAME 'sstTemplateFormatTarget'
+    DESC 'The format of the target (for example: txt).'
+    EQUALITY caseIgnoreMatch
+    SUBSTR caseIgnoreSubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{16}
+    SINGLE-VALUE )
+
+attributetype ( sstAttributeType:250
+    NAME 'sstMailTemplateFormatSource'
+    DESC 'The format of the source template (for example: txt).'
+    EQUALITY caseIgnoreMatch
+    SUBSTR caseIgnoreSubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{16}
+    SINGLE-VALUE )
+
+attributetype ( sstAttributeType:251
+    NAME 'sstMailTemplateFormatTarget'
+    DESC 'The format of the target (for example: txt).'
+    EQUALITY caseIgnoreMatch
+    SUBSTR caseIgnoreSubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{16}
+    SINGLE-VALUE )
+
+attributetype ( sstAttributeType:252
+    NAME 'sstMailTemplateResellerFormatSource'
+    DESC 'The format of the source template (for example: txt).'
+    EQUALITY caseIgnoreMatch
+    SUBSTR caseIgnoreSubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{16}
+    SINGLE-VALUE )
+
+attributetype ( sstAttributeType:253
+    NAME 'sstMailTemplateResellerFormatTarget'
     DESC 'The format of the target (for example: txt).'
     EQUALITY caseIgnoreMatch
     SUBSTR caseIgnoreSubstringsMatch
@@ -2017,8 +2049,10 @@ objectclass ( sstObjectClass:29
 objectclass ( sstObjectClass:30
     NAME 'sstTemplateSetup'
     SUP top AUXILIARY
-    MAY ( sstMailFrom $ sstMailTo $ sstMailTemplate $ sstTemplate $ sstTemplateReseller $
-          sstTemplateFormatSource $ sstTemplateFormatTarget ) )
+    MAY ( sstMailFrom $ sstMailTo $ sstMailTemplate $ sstTemplate $ sstMailTemplateReseller $
+          sstMailTemplateFormatSource $ sstMailTemplateFormatTarget $ sstTemplateFormatSource $
+          sstTemplateFormatTarget $ sstMailTemplateResellerFormatSource $ 
+          sstMailTemplateResellerFormatTarget ) )
 
 objectclass ( sstObjectClass:31
     NAME 'sstVirtualizationProfileArchitectureDefaults'
