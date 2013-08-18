@@ -2289,5 +2289,5 @@ objectclass ( sstObjectClass:66
 objectclass ( sstObjectClass:67
     NAME 'sstNotificationObjectClass'
     SUP top AUXILIARY
-    MUST ( sstNotificationWarning ) )
+    MAY ( sstNotificationWarning $ sstMailTo) )
 
