@@ -507,7 +507,7 @@ attributetype ( sstAttributeType:68
 
 attributetype ( sstAttributeType:69
     NAME 'sstType'
-    DESC 'Depending on the object class, the type can consist of values like kvm, xen, file, bridge, ... .'
+    DESC 'Depending on the object class, the type can consist of values like kvm, xen, file, network, bridge, ... .'
     EQUALITY caseIgnoreIA5Match
     SUBSTR caseIgnoreIA5SubstringsMatch
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{32}
@@ -1840,6 +1840,29 @@ attributetype ( sstAttributeType:253
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{16}
     SINGLE-VALUE )
 
+attributetype ( sstAttributeType:254
+    NAME 'sstSourceProtocol'
+    DESC 'The protocoll used to access a source (virtual disk). In case of a native Qemu GlusterFS integration, the value would be gluster.'
+    EQUALITY caseIgnoreMatch
+    SUBSTR caseIgnoreSubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256}
+    SINGLE-VALUE )
+
+attributetype ( sstAttributeType:255
+    NAME 'sstSourceName'
+    DESC 'The name of the source (virtual disk). In case of a native Qemu GlusterFS integration, the value starts at the GlusterFS entry point. For example: virtualization/vm-persistent/0f83f084-8080-413e-b558-b678e504836e/3aa376a5-6d09-442b-8662-425de888385b.qcow2.'
+    EQUALITY caseIgnoreMatch
+    SUBSTR caseIgnoreSubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256}
+    SINGLE-VALUE )
+
+attributetype ( sstAttributeType:256
+    NAME 'sstSourceHostName'
+    DESC 'The ip address of the source (virtual disk). In case of a native Qemu GlusterFS integration, this would be the address of the primary storage node (currently only one ip address is supported by Qemu. For example: 10.1.120.11.'
+    EQUALITY caseIgnoreMatch
+    SUBSTR caseIgnoreSubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256} )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -2037,9 +2060,10 @@ objectclass ( sstObjectClass:27
 objectclass ( sstObjectClass:28
     NAME 'sstVirtualizationVirtualMachineDisk'
     SUP top STRUCTURAL
-    MUST ( sstDevice $ sstDisk $ sstSourceFile $ sstTargetBus $ sstType )
+    MUST ( sstDevice $ sstDisk $ sstTargetBus $ sstType )
     MAY ( sstDriverCache $ sstDriverName $ sstDriverType $ sstReadonly $ sstVolumeAllocation $
-          sstVolumeCapacity $ sstVolumeName ) )
+          sstVolumeCapacity $ sstVolumeName $ sstSourceFile $ sstSourceProtocol $ sstSourceName $
+          sstSourceHostName ) )
 
 objectclass ( sstObjectClass:29
     NAME 'sstVirtualizationVirtualMachineInterface'
