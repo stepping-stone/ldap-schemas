@@ -1872,8 +1872,8 @@ attributetype ( sstAttributeType:257
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
-    MUST ( uid $ organizationName ) 
-    MAY ( description $ sstBelongsToResellerUID $ sstIsActive $ sstIsCompany $ sstExternalID ) )
+    MUST ( uid $ organizationName $ sstBelongsToResellerUID ) 
+    MAY ( description $ givenName $ surname $ sstIsActive $ sstIsCompany $ sstExternalID ) )
 
 objectclass ( sstObjectClass:2
     NAME 'sstAddressCompany'
