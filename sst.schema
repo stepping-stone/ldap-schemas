@@ -1862,6 +1862,13 @@ attributetype ( sstAttributeType:256
     SUBSTR caseIgnoreSubstringsMatch
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256} )
 
+attributetype ( sstAttributeType:257
+    NAME 'sstIsCompany'
+    DESC 'Is the entry a company? Either yes (TRUE) or no (FALSE).'
+    EQUALITY booleanMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+    SINGLE-VALUE )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -2314,3 +2321,16 @@ objectclass ( sstObjectClass:67
     SUP top AUXILIARY
     MAY ( sstNotificationWarning $ sstMailTo) )
 
+objectclass ( sstObjectClass:68
+    NAME 'sstCustomer'
+    SUP top STRUCTURAL
+    MUST ( uid $ sstIsCompany )
+    MAY ( givenName $ organizationName $ surname ) )
+
+objectclass ( sstObjectClass:69
+    NAME 'sstCustomerAddress'
+    SUP top AUXILIARY
+    MUST ( countryName $ givenName $ localityName $ mail $
+           postalCode $ preferredLanguage $ sstGender $ surname )
+    MAY ( mobileTelephoneNumber $ organizationName $ postalAddress $ postOfficeBox $
+          sstWebsiteURL $ stateOrProvinceName $ telephoneNumber ) )
