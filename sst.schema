@@ -1873,7 +1873,7 @@ objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
     MUST ( uid $ organizationName ) 
-    MAY ( description $ sstBelongsToResellerUID $ sstIsActive $ sstExternalID ) )
+    MAY ( description $ sstBelongsToResellerUID $ sstIsActive $ sstIsCompany $ sstExternalID ) )
 
 objectclass ( sstObjectClass:2
     NAME 'sstAddressCompany'
@@ -2328,7 +2328,7 @@ objectclass ( sstObjectClass:68
     MAY ( givenName $ organizationName $ surname ) )
 
 objectclass ( sstObjectClass:69
-    NAME 'sstCustomerAddress'
+    NAME 'sstAddress'
     SUP top AUXILIARY
     MUST ( countryName $ givenName $ localityName $ mail $
            postalCode $ preferredLanguage $ sstGender $ surname )
