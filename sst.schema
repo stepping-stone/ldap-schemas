@@ -1876,6 +1876,13 @@ attributetype ( sstAttributeType:258
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{32}
     SINGLE-VALUE )
 
+attributetype ( sstAttributeType:259
+    NAME 'sstTest'
+    DESC 'Defines if a product or service is for testing purposes only. If TRUE, then it is not billable. If the attribute does not exist or is FALSE, the product or service must be billed.'
+    EQUALITY booleanMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+    SINGLE-VALUE )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -2047,7 +2054,7 @@ objectclass ( sstObjectClass:24
     SUP top AUXILIARY
     MUST ( sstBelongsToResellerUID )
     MAY ( sstBelongsToBillingUID $ sstBelongsToCustomerUID $ sstBelongsToPersonUID $ sstIsActive $
-          sstAllowResellerUID $ sstAllowCustomerUID $ sstAllowPersonUID $ sstExternalID ) )
+          sstAllowResellerUID $ sstAllowCustomerUID $ sstAllowPersonUID $ sstExternalID $ sstTest ) )
 
 objectclass ( sstObjectClass:25
     NAME 'sstSpice'
