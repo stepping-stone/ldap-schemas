@@ -2071,9 +2071,9 @@ objectclass ( sstObjectClass:23
 objectclass ( sstObjectClass:24
     NAME 'sstRelationship'
     SUP top AUXILIARY
-    MUST ( sstBelongsToResellerUID )
     MAY ( sstBelongsToBillingUID $ sstBelongsToCustomerUID $ sstBelongsToPersonUID $ sstIsActive $
-          sstAllowResellerUID $ sstAllowCustomerUID $ sstAllowPersonUID $ sstExternalID $ sstTest ) )
+          sstAllowResellerUID $ sstAllowCustomerUID $ sstAllowPersonUID $ sstExternalID $ sstTest $
+          sstBelongsToResellerUID ) )
 
 objectclass ( sstObjectClass:25
     NAME 'sstSpice'
