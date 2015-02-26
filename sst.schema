@@ -2097,7 +2097,7 @@ objectclass ( sstObjectClass:26
 	   sstVirtualMachine $ sstVirtualMachinePool )
     MAY ( description $ sstFeature $ sstMigrationNode $ sstSourceFile $ sstVirtualMachineMode $
           sstVirtualMachineType $ sstVirtualMachineSubType $ sstThinProvisioningVirtualMachine $
-          sstNetworkDomainName $ sstNetworkHostname ) )
+          sstNetworkDomainName $ sstNetworkHostname $ sstClockTimer ) )
 
 objectclass ( sstObjectClass:27
     NAME 'sstVirtualizationVirtualMachineDevices'
