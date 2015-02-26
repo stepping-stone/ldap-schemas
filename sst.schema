@@ -546,10 +546,10 @@ attributetype ( sstAttributeType:73
 
 attributetype ( sstAttributeType:74
     NAME 'sstFeature'
-    DESC 'Hypervisors may allow certain CPU / machine features to be toggled on/off (for example pae, acpi oder apic).'
+    DESC 'Hypervisors may allow certain CPU / machine features to be toggled on/off (for example pae, acpi, apic or hyperv:relaxed+state=on,vapic+state=on,spinlocks+state=on+retries=8191).'
     EQUALITY caseIgnoreIA5Match
     SUBSTR caseIgnoreIA5SubstringsMatch
-    SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{16} )
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{256} )
 
 attributetype ( sstAttributeType:75
     NAME 'sstClockOffset'
@@ -1901,6 +1901,13 @@ attributetype ( sstAttributeType:262
     EQUALITY integerMatch
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.27{8}
     SINGLE-VALUE )
+
+attributetype ( sstAttributeType:263
+    NAME 'sstClockTimer'
+    DESC 'Defines the timer elements (for example rtc:tickpolicy=catchup, pit:tickpolicy=delay, hypervclock:present=yes or hpet:present=no).'
+    EQUALITY caseIgnoreIA5Match
+    SUBSTR caseIgnoreIA5SubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{256} )
 
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
