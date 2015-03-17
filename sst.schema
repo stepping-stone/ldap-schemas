@@ -1890,7 +1890,7 @@ attributetype ( sstAttributeType:260
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{128} )
 
 attributetype ( sstAttributeType:261
-    NAME 'sstConfigurationManagementEnvironmentName'
+    NAME 'sstConfigurationManagementBranch'
     DESC 'The name of a configuration management environment  (for example: test, development, integration, production or apache 2.4).'
     EQUALITY caseIgnoreMatch
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{64} )
@@ -2273,7 +2273,7 @@ objectclass ( sstObjectClass:53
     NAME 'sstGroupObjectClass'
     SUP top STRUCTURAL
     MUST ( sstDisplayName )
-    MAY ( description $ ou $ sstConfigurationManagementEnvironmentName $ sstEnvironmentName $
+    MAY ( description $ ou $ sstConfigurationManagementBranch $ sstEnvironmentName $
           sstGroupName $ sstLDAPForeignStaticAttribute $ sstBusinessLogicRoleName $ uid ) )
 
 objectclass ( sstObjectClass:54
