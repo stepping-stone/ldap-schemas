@@ -1968,6 +1968,13 @@ attributetype ( sstAttributeType:272
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
     SINGLE-VALUE )
 
+attributetype ( sstAttributeType:273
+    NAME 'sstBelongsToServiceUID'
+    DESC 'Stores the UID of the service the leaf belongs to. This UID can be used to look up other information.'
+    EQUALITY caseIgnoreMatch
+    SUBSTR caseIgnoreSubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256} )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -2439,6 +2446,7 @@ objectclass ( sstObjectClass:70
     NAME 'sstMaintenanceObjectClass'
     SUP top STRUCTURAL
     MUST ( sstIsActive $ sstServicePriority $ sstCronRepeatType $ sstCronInterval $
-           sstCronStartDate $ sstCronDuration $ uid )
+           sstCronStartDate $ sstCronDuration $ sstNotificationWarning $ 
+           sstBelongsToServiceUID $ uid )
     MAY ( description $ sstCronMinute $ sstCronHour $ sstCronDayOfWeek $ sstCronDayOfMonth $
           sstCronMonthOfyear $ sstCronOccurrenceInMonth) )
