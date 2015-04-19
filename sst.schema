@@ -1923,6 +1923,51 @@ attributetype ( sstAttributeType:265
     SUBSTR caseIgnoreSubstringsMatch
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256} )
 
+attributetype ( sstAttributeType:266
+    NAME 'sstCronRepeatType'
+    DESC 'How often is a cron job to be repeated. Valid values are: daily, weekly, monthly, yearly.'
+    EQUALITY caseIgnoreIA5Match
+    SUBSTR caseIgnoreIA5SubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{32}
+    SINGLE-VALUE )
+
+attributetype ( sstAttributeType:267
+    NAME 'sstCronInterval'
+    DESC 'The interval of a cron job. This attribute is dependant on the attribute sstCronRepeatType. Valid values are: 1 - 12. For example: 2 could be every two days, weeks, months or years.'
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE )
+
+attributetype ( sstAttributeType:268
+    NAME 'sstCronDayOfMonth'
+    DESC 'The day of the month a cron job is to be executed. Valid values are: 1 - 31. For example: 3 would the third.'
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE )
+
+attributetype ( sstAttributeType:269
+    NAME 'sstCronMonthOfyear'
+    DESC 'The month of the year a cron job is to be executed. Valid values are: 1 - 12. For example: 3 would be March.'
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE )
+
+attributetype ( sstAttributeType:270
+    NAME 'sstCronOccurrenceInMonth'
+    DESC 'The occurence of the day in a month a cron job is to be executed. Valid values are: 1 - 5. For example: 3 would be the third occurence.'
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE )
+
+attributetype ( sstAttributeType:271
+    NAME 'sstCronStartDate'
+    DESC 'The first time a cron job is executed. This date is stored in the form of [YYYY][MM][DD] (ISO 8601). For example: 2010314 (the 14th of March 2015).'
+    EQUALITY integerMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE )
+
+attributetype ( sstAttributeType:272
+    NAME 'sstCronDuration'
+    DESC 'The duration of the maintenance window in minutes. Valid values are: 15 - 1440 (15 minutes to 24 hours). For example: 60, which means 60 minutes (one hour).'
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -2388,4 +2433,12 @@ objectclass ( sstObjectClass:69
     MUST ( countryName $ givenName $ localityName $ mail $
            postalCode $ preferredLanguage $ sstGender $ surname )
     MAY ( mobileTelephoneNumber $ organizationName $ postalAddress $ postOfficeBox $
-          sstWebsiteURL $ stateOrProvinceName $ telephoneNumber ) )       
+          sstWebsiteURL $ stateOrProvinceName $ telephoneNumber ) )
+
+objectclass ( sstObjectClass:70
+    NAME 'sstMaintenanceObjectClass'
+    SUP top STRUCTURAL
+    MUST ( sstIsActive $ sstServicePriority $ sstCronRepeatType $ sstCronInterval $
+           sstCronStartDate $ sstCronDuration $ uid )
+    MAY ( description $ sstCronMinute $ sstCronHour $ sstCronDayOfWeek $ sstCronDayOfMonth $
+          sstCronMonthOfyear $ sstCronOccurrenceInMonth) )
