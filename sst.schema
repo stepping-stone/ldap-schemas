@@ -1909,6 +1909,20 @@ attributetype ( sstAttributeType:263
     SUBSTR caseIgnoreIA5SubstringsMatch
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{256} )
 
+attributetype ( sstAttributeType:264
+    NAME 'sstInformPersonUID'
+    DESC 'Stores the UID of the person to be informed if necessary. This UID can be used to look up the persons mail address, preferred language, name, surname or other information.'
+    EQUALITY caseIgnoreMatch
+    SUBSTR caseIgnoreSubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256} )
+
+attributetype ( sstAttributeType:265
+    NAME 'sstResponsiblePersonUID'
+    DESC 'Stores the UID of the person who is responsible for the system or service. This UID can be used to look up the persons mail address, preferred language, name, surname or other information.'
+    EQUALITY caseIgnoreMatch
+    SUBSTR caseIgnoreSubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256} )
+
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -2080,7 +2094,7 @@ objectclass ( sstObjectClass:24
     SUP top AUXILIARY
     MAY ( sstBelongsToBillingUID $ sstBelongsToCustomerUID $ sstBelongsToPersonUID $ sstIsActive $
           sstAllowResellerUID $ sstAllowCustomerUID $ sstAllowPersonUID $ sstExternalID $ sstTest $
-          sstBelongsToResellerUID ) )
+          sstBelongsToResellerUID $ sstInformPersonUID $ sstResponsiblePersonUID ) )
 
 objectclass ( sstObjectClass:25
     NAME 'sstSpice'
@@ -2374,4 +2388,4 @@ objectclass ( sstObjectClass:69
     MUST ( countryName $ givenName $ localityName $ mail $
            postalCode $ preferredLanguage $ sstGender $ surname )
     MAY ( mobileTelephoneNumber $ organizationName $ postalAddress $ postOfficeBox $
-          sstWebsiteURL $ stateOrProvinceName $ telephoneNumber ) )
+          sstWebsiteURL $ stateOrProvinceName $ telephoneNumber ) )       
