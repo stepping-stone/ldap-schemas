@@ -2434,7 +2434,8 @@ objectclass ( sstObjectClass:66
 objectclass ( sstObjectClass:67
     NAME 'sstNotificationObjectClass'
     SUP top AUXILIARY
-    MAY ( sstNotificationWarning $ sstMailTo) )
+    MAY ( sstNotificationWarning $ sstMailTo $ sstInformPersonUID $ sstResponsiblePersonUID $
+          sstResponsibleDeputyPersonUID ) )
 
 objectclass ( sstObjectClass:68
     NAME 'sstCustomer'
