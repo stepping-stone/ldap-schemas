@@ -1975,6 +1975,13 @@ attributetype ( sstAttributeType:273
     SUBSTR caseIgnoreSubstringsMatch
     SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256} )
 
+attributetype ( sstAttributeType:274
+    NAME 'sstResponsibleDeputyPersonUID'
+    DESC 'Stores the UID of the deputy of the person who is responsible for the system or service. This UID can be used to look up the persons mail address, preferred language, name, surname or other information.'
+    EQUALITY caseIgnoreMatch
+    SUBSTR caseIgnoreSubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{256} )    
+    
 objectclass ( sstObjectClass:1
     NAME 'sstReseller'
     SUP top STRUCTURAL
@@ -2146,7 +2153,8 @@ objectclass ( sstObjectClass:24
     SUP top AUXILIARY
     MAY ( sstBelongsToBillingUID $ sstBelongsToCustomerUID $ sstBelongsToPersonUID $ sstIsActive $
           sstAllowResellerUID $ sstAllowCustomerUID $ sstAllowPersonUID $ sstExternalID $ sstTest $
-          sstBelongsToResellerUID $ sstInformPersonUID $ sstResponsiblePersonUID ) )
+          sstBelongsToResellerUID $ sstInformPersonUID $ sstResponsiblePersonUID $
+          sstResponsibleDeputyPersonUID ) )
 
 objectclass ( sstObjectClass:25
     NAME 'sstSpice'
