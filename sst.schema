@@ -2441,7 +2441,7 @@ objectclass ( sstObjectClass:68
     NAME 'sstCustomer'
     SUP top STRUCTURAL
     MUST ( uid $ sstIsCompany )
-    MAY ( description $ givenName $ organizationName $ surname ) )
+    MAY ( givenName $ organizationName $ surname ) )
 
 objectclass ( sstObjectClass:69
     NAME 'sstAddress'
