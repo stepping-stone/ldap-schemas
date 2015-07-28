@@ -2458,4 +2458,10 @@ objectclass ( sstObjectClass:70
            sstCronStartDate $ sstCronDuration $ sstNotificationWarning $ 
            sstBelongsToServiceUID $ uid )
     MAY ( description $ sstCronMinute $ sstCronHour $ sstCronDayOfWeek $ sstCronDayOfMonth $
-          sstCronMonthOfyear $ sstCronOccurrenceInMonth) )
+          sstCronMonthOfyear $ sstCronOccurrenceInMonth ) )
+
+objectclass ( sstObjectClass:71
+    NAME 'sstVserversObjectClass'
+    SUP top STRUCTURAL
+    MUST ( uid $ sstNetworkHostname $ sstNetworkDomainName $ sstDisplayName )
+    MAY ( description ) )
